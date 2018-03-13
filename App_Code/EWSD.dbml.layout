@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 9" name="EWSD">
+  <DataContextMoniker Name="/EWSDDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" absoluteBounds="3.5, 2.875, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/EWSDDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc8c8846-8246-452e-809d-2c3b22e2b55d" absoluteBounds="3.515, 3.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2b9ac09-83b3-4ecd-955e-6e06be9d12e9" absoluteBounds="6.5, 1.125, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/EWSDDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31bdc954-e7fb-41be-accf-3977b12ff351" absoluteBounds="6.515, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae549120-a5da-431a-9631-ea541d2d4484" absoluteBounds="6.5, 6.375, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/EWSDDataContext/ClosureDate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a75850b-8fa0-486f-b862-69d164ef6584" absoluteBounds="6.515, 6.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d50c774c-ec83-413f-8caf-16360d892ba4" absoluteBounds="6.25, 3.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/EWSDDataContext/Comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51e221c7-32b0-4c98-8061-fba81d05a907" absoluteBounds="6.265, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c8f8c65-aa01-49ae-b40f-b52354a7479b" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/EWSDDataContext/Department" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e71b427-a375-4757-9faf-e798b047d75a" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="826e7f1c-646a-49b7-aae7-227a08c1898f" absoluteBounds="12, 3.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/EWSDDataContext/DocumentSupport" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9992d774-52fe-4de9-acf8-bfa61d361622" absoluteBounds="12.015, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" absoluteBounds="9.25, 3.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/EWSDDataContext/Idea" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cd1c784-66ec-47b5-aad9-6fb89bde7dd1" absoluteBounds="9.265, 3.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a27cf39a-d883-4201-a2be-a4a546bcfb20" absoluteBounds="12, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/EWSDDataContext/Reaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d863e8e3-1851-4507-8d38-1ef9bf84e336" absoluteBounds="12.015, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cfb207e-b615-4a1f-ac8a-5b10c2b674f2" absoluteBounds="0.75, 3.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/EWSDDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ac7d45f-1ad6-40d6-887c-217abaf20b72" absoluteBounds="0.765, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.48159912109375); (6.25 : 4.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/User/User_Comment" />
+      <nodes>
+        <classShapeMoniker Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" />
+        <classShapeMoniker Id="d50c774c-ec83-413f-8caf-16360d892ba4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.44314697265625); (4.5 : 1.44314697265625); (4.5 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Department/Department_User" />
+      <nodes>
+        <classShapeMoniker Id="7c8f8c65-aa01-49ae-b40f-b52354a7479b" />
+        <classShapeMoniker Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.25 : 4.48159912109375); (8.25 : 4.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Idea/Idea_Comment" />
+      <nodes>
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+        <classShapeMoniker Id="d50c774c-ec83-413f-8caf-16360d892ba4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 4.44314697265625); (12 : 4.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Idea/Idea_DocumentSupport" />
+      <nodes>
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+        <classShapeMoniker Id="826e7f1c-646a-49b7-aae7-227a08c1898f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 1.91429768880208); (10.25 : 1.91429768880208); (10.25 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Category/Category_Idea" />
+      <nodes>
+        <classShapeMoniker Id="b2b9ac09-83b3-4ecd-955e-6e06be9d12e9" />
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 7.54890055338542); (10.25 : 7.54890055338542); (10.25 : 5.85740397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/ClosureDate/ClosureDate_Idea" />
+      <nodes>
+        <classShapeMoniker Id="ae549120-a5da-431a-9631-ea541d2d4484" />
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.69155110677083); (9.25 : 5.69155110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/User/User_Idea" />
+      <nodes>
+        <classShapeMoniker Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" />
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.7812525 : 3.125); (10.7812525 : 1.33214884440104); (12 : 1.33214884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Idea/Idea_Reaction" />
+      <nodes>
+        <classShapeMoniker Id="421e14fd-a1b9-496c-a2e7-e514e43ed808" />
+        <classShapeMoniker Id="a27cf39a-d883-4201-a2be-a4a546bcfb20" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 2.875); (5.0312525 : 0.90625); (12 : 0.90625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/User/User_Reaction" />
+      <nodes>
+        <classShapeMoniker Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" />
+        <classShapeMoniker Id="a27cf39a-d883-4201-a2be-a4a546bcfb20" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.47199625651042); (3.5 : 4.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EWSDDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="3cfb207e-b615-4a1f-ac8a-5b10c2b674f2" />
+        <classShapeMoniker Id="7542d908-cb8f-4299-867c-9ce4b046a8fb" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="University_EWSD" Class="EWSDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=University_EWSD;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="University_EWSDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDUsers" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="ID_Iden" OtherKey="ID_Iden" Type="Comment" />
+      <Association Name="User_Idea" Member="Ideas" ThisKey="ID_Iden" OtherKey="ID_Iden" Type="Idea" />
+      <Association Name="User_Reaction" Member="Reactions" ThisKey="ID_Iden" OtherKey="UserID" Type="Reaction" />
+      <Association Name="Department_User" Member="Department" ThisKey="DepID" OtherKey="DepID" Type="Department" IsForeignKey="true" />
+      <Association Name="Role_User" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Category_Idea" Member="Ideas" ThisKey="CatID" OtherKey="CatID" Type="Idea" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClosureDate" Member="ClosureDates">
+    <Type Name="ClosureDate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClosureDate" Member="ClosureDate1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FinalClosureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="YearStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="YearEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ClosureDate_Idea" Member="Ideas" ThisKey="Id" OtherKey="ID_Date" Type="Idea" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comment" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="ComID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Anonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="User_Comment" Member="User" ThisKey="ID_Iden" OtherKey="ID_Iden" Type="User" IsForeignKey="true" />
+      <Association Name="Idea_Comment" Member="Idea" ThisKey="IdeaID" OtherKey="IdeaID" Type="Idea" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="DepID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Department_User" Member="Users" ThisKey="DepID" OtherKey="DepID" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocumentSupport" Member="DocumentSupports">
+    <Type Name="DocumentSupport">
+      <Column Name="DocID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Idea_DocumentSupport" Member="Idea" ThisKey="IdeaID" OtherKey="IdeaID" Type="Idea" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Idea" Member="Ideas">
+    <Type Name="Idea">
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Anonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_Date" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Idea_Comment" Member="Comments" ThisKey="IdeaID" OtherKey="IdeaID" Type="Comment" />
+      <Association Name="Idea_DocumentSupport" Member="DocumentSupports" ThisKey="IdeaID" OtherKey="IdeaID" Type="DocumentSupport" />
+      <Association Name="Idea_Reaction" Member="Reactions" ThisKey="IdeaID" OtherKey="IdeaID" Type="Reaction" />
+      <Association Name="Category_Idea" Member="Category" ThisKey="CatID" OtherKey="CatID" Type="Category" IsForeignKey="true" />
+      <Association Name="ClosureDate_Idea" Member="ClosureDate" ThisKey="ID_Date" OtherKey="Id" Type="ClosureDate" IsForeignKey="true" />
+      <Association Name="User_Idea" Member="User" ThisKey="ID_Iden" OtherKey="ID_Iden" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reaction" Member="Reactions">
+    <Type Name="Reaction">
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Idea_Reaction" Member="Idea" ThisKey="IdeaID" OtherKey="IdeaID" Type="Idea" IsForeignKey="true" />
+      <Association Name="User_Reaction" Member="User" ThisKey="UserID" OtherKey="ID_Iden" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Role_User" Member="Users" ThisKey="RoleID" OtherKey="RoleID" Type="User" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetIdeaDetail" Method="GetIdeaDetail">
+    <Parameter Name="IdeaID" Parameter="ideaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetIdeaDetailResult">
+      <Column Name="Content" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetCategory" Method="sp_GetCategory">
+    <ElementType Name="sp_GetCategoryResult">
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetQACoordinator" Method="sp_GetQACoordinator">
+    <Parameter Name="Did" Parameter="did" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_GetQACoordinatorResult">
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDUsers" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleID1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
