@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FramePage.master.cs" Inherits="FramePage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 1500px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <asp:LinkButton class="navbar-brand" runat="server" ID="lbtnHome" OnClick="lbtnHome_Click" Text="EWSD_University" />
+            </div>
+            <ul class="nav navbar-nav">
+                <li><asp:LinkButton runat="server" ID="lbtnIdeas" Text="Idea" OnClick="lbtnIdeas_Click" /></li>
+                <li><asp:LinkButton runat="server" ID="lbtnUser" Text="User" OnClick="lbtnUser_Click" /></li>
+                <li><asp:LinkButton runat="server" ID="lbtnDownload" Text="Download" OnClick="lbtnDownload_Click" /></li>
+                <li><asp:LinkButton runat="server" ID="lbtnYear" Text="Academic Year" OnClick="lbtnYear_Click" /></li>
+                <li><asp:LinkButton runat="server" ID="lbtnCategoryMenu" Text="Category" OnClick="lbtnCategoryMenu_Click" /></li>
+                <li><asp:LinkButton runat="server" ID="lbtnLogout" Text="Log Out" OnClick="lbtnLogout_Click" /></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    
+        <div>
+            <div class="container-fluid">
+                <div class="row content">
+                    <div class="col-sm-3 sidenav" runat="server" id="dvCat">
+                        <h4>Categories</h4>
+                        <ul class="nav nav-pills nav-stacked">
+                            <asp:Repeater runat="server" ID="rptCategory">
+                                <ItemTemplate>
+                                    <li><asp:LinkButton CssClass="active" runat="server" ID="lbtnCategory"
+                                        CommandArgument=<%#Eval("CatID") %>
+                                        OnClick="lbtnCategory_Click">
+                                        <%#Eval("Name") %>
+                                        <small>( <%#Eval("count") %> )</small>
+                                        </asp:LinkButton>
+                                        </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                        <br>
+                    </div>
+                    <div class="col-sm-9">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    
+                    </asp:ContentPlaceHolder>
+                </div>
+                </div>
+            </div>
+            <footer class="container-fluid" style="text-align:center">
+                <p>EWSD_University</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
