@@ -21,4 +21,17 @@ public class UserService : PageManagement
             catch { return false; }
         }
     }
+
+    public bool UpdateUser(User user)
+    {
+        using (EWSDDataContext db = new EWSDDataContext())
+        {
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+    }
 }
