@@ -156,9 +156,16 @@ public partial class DownloadManagement : PageManagement
 
     public void DeleteFile()
     {
-        string[] file = Directory.GetFiles(Server.MapPath(@"~/Files/Temp/"));
-        foreach (string fileName in file)
-            File.Delete(fileName);
+        try
+        {
+            string[] file = Directory.GetFiles(Server.MapPath(@"~/Files/Temp/"));
+            foreach (string fileName in file)
+                File.Delete(fileName);
+        }
+        catch (Exception ex)
+        {
+
+        }
     }
     public void Download()
     {

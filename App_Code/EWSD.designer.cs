@@ -180,6 +180,27 @@ public partial class EWSDDataContext : System.Data.Linq.DataContext
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), did);
 		return ((ISingleResult<sp_GetQACoordinatorResult>)(result.ReturnValue));
 	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LisOfDislike")]
+	public ISingleResult<sp_LisOfDislikeResult> sp_LisOfDislike()
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<sp_LisOfDislikeResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LisOfLike")]
+	public ISingleResult<sp_LisOfLikeResult> sp_LisOfLike()
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<sp_LisOfLikeResult>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_countIdeaOnDepartment")]
+	public ISingleResult<sp_countIdeaOnDepartmentResult> sp_countIdeaOnDepartment()
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<sp_countIdeaOnDepartmentResult>)(result.ReturnValue));
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
@@ -2799,6 +2820,354 @@ public partial class sp_GetQACoordinatorResult
 			if ((this._RoleName != value))
 			{
 				this._RoleName = value;
+			}
+		}
+	}
+}
+
+public partial class sp_LisOfDislikeResult
+{
+	
+	private int _IdeaID;
+	
+	private string _Title;
+	
+	private int _Views;
+	
+	private string _FirstName;
+	
+	private System.Nullable<int> _ID_Iden;
+	
+	private System.DateTime _DateCreated;
+	
+	private bool _Anonymous;
+	
+	private System.Nullable<int> _SoLuong;
+	
+	public sp_LisOfDislikeResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdeaID", DbType="Int NOT NULL")]
+	public int IdeaID
+	{
+		get
+		{
+			return this._IdeaID;
+		}
+		set
+		{
+			if ((this._IdeaID != value))
+			{
+				this._IdeaID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(100)")]
+	public string Title
+	{
+		get
+		{
+			return this._Title;
+		}
+		set
+		{
+			if ((this._Title != value))
+			{
+				this._Title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Views", DbType="Int NOT NULL")]
+	public int Views
+	{
+		get
+		{
+			return this._Views;
+		}
+		set
+		{
+			if ((this._Views != value))
+			{
+				this._Views = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string FirstName
+	{
+		get
+		{
+			return this._FirstName;
+		}
+		set
+		{
+			if ((this._FirstName != value))
+			{
+				this._FirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Iden", DbType="Int")]
+	public System.Nullable<int> ID_Iden
+	{
+		get
+		{
+			return this._ID_Iden;
+		}
+		set
+		{
+			if ((this._ID_Iden != value))
+			{
+				this._ID_Iden = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreated", DbType="DateTime NOT NULL")]
+	public System.DateTime DateCreated
+	{
+		get
+		{
+			return this._DateCreated;
+		}
+		set
+		{
+			if ((this._DateCreated != value))
+			{
+				this._DateCreated = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Anonymous", DbType="Bit NOT NULL")]
+	public bool Anonymous
+	{
+		get
+		{
+			return this._Anonymous;
+		}
+		set
+		{
+			if ((this._Anonymous != value))
+			{
+				this._Anonymous = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
+	public System.Nullable<int> SoLuong
+	{
+		get
+		{
+			return this._SoLuong;
+		}
+		set
+		{
+			if ((this._SoLuong != value))
+			{
+				this._SoLuong = value;
+			}
+		}
+	}
+}
+
+public partial class sp_LisOfLikeResult
+{
+	
+	private int _IdeaID;
+	
+	private string _Title;
+	
+	private int _Views;
+	
+	private string _FirstName;
+	
+	private System.Nullable<int> _ID_Iden;
+	
+	private System.DateTime _DateCreated;
+	
+	private bool _Anonymous;
+	
+	private System.Nullable<int> _SoLuong;
+	
+	public sp_LisOfLikeResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdeaID", DbType="Int NOT NULL")]
+	public int IdeaID
+	{
+		get
+		{
+			return this._IdeaID;
+		}
+		set
+		{
+			if ((this._IdeaID != value))
+			{
+				this._IdeaID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(100)")]
+	public string Title
+	{
+		get
+		{
+			return this._Title;
+		}
+		set
+		{
+			if ((this._Title != value))
+			{
+				this._Title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Views", DbType="Int NOT NULL")]
+	public int Views
+	{
+		get
+		{
+			return this._Views;
+		}
+		set
+		{
+			if ((this._Views != value))
+			{
+				this._Views = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string FirstName
+	{
+		get
+		{
+			return this._FirstName;
+		}
+		set
+		{
+			if ((this._FirstName != value))
+			{
+				this._FirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Iden", DbType="Int")]
+	public System.Nullable<int> ID_Iden
+	{
+		get
+		{
+			return this._ID_Iden;
+		}
+		set
+		{
+			if ((this._ID_Iden != value))
+			{
+				this._ID_Iden = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreated", DbType="DateTime NOT NULL")]
+	public System.DateTime DateCreated
+	{
+		get
+		{
+			return this._DateCreated;
+		}
+		set
+		{
+			if ((this._DateCreated != value))
+			{
+				this._DateCreated = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Anonymous", DbType="Bit NOT NULL")]
+	public bool Anonymous
+	{
+		get
+		{
+			return this._Anonymous;
+		}
+		set
+		{
+			if ((this._Anonymous != value))
+			{
+				this._Anonymous = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoLuong", DbType="Int")]
+	public System.Nullable<int> SoLuong
+	{
+		get
+		{
+			return this._SoLuong;
+		}
+		set
+		{
+			if ((this._SoLuong != value))
+			{
+				this._SoLuong = value;
+			}
+		}
+	}
+}
+
+public partial class sp_countIdeaOnDepartmentResult
+{
+	
+	private string _Name;
+	
+	private System.Nullable<int> _QuantityOfIdeas;
+	
+	public sp_countIdeaOnDepartmentResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string Name
+	{
+		get
+		{
+			return this._Name;
+		}
+		set
+		{
+			if ((this._Name != value))
+			{
+				this._Name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityOfIdeas", DbType="Int")]
+	public System.Nullable<int> QuantityOfIdeas
+	{
+		get
+		{
+			return this._QuantityOfIdeas;
+		}
+		set
+		{
+			if ((this._QuantityOfIdeas != value))
+			{
+				this._QuantityOfIdeas = value;
 			}
 		}
 	}

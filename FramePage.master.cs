@@ -22,10 +22,14 @@ public partial class FramePage : System.Web.UI.MasterPage
             lbtnUser.Visible = false;
             lbtnYear.Visible = false;
         }
-        if(UserRole() == 2 || UserRole() == 4)
+        if(UserRole() == 4)
         {
             lbtnCategoryMenu.Visible = false;
             lbtnDownload.Visible = false;
+        }
+        if(UserRole() == 2)
+        {
+            lbtnCategoryMenu.Visible = false;
         }
     }
 
@@ -79,5 +83,15 @@ public partial class FramePage : System.Web.UI.MasterPage
     {
         Session.Remove("user");
         Response.Redirect("LoginForm.aspx");
+    }
+
+    protected void lbtnChangePass_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ChangePassword.aspx");
+    }
+
+    protected void lbtnReport_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Report.aspx");
     }
 }

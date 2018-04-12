@@ -22,16 +22,18 @@ public class UserService : PageManagement
         }
     }
 
-    public bool UpdateUser(User user)
+    public bool ChangePassword(int id, string password)
     {
         using (EWSDDataContext db = new EWSDDataContext())
         {
             try
             {
+                var user = db.Users.FirstOrDefault(x => x.ID_Iden == id);
+                if (user != null) user.Password = password;
                 db.SubmitChanges();
                 return true;
-            }
-            catch { return false; }
+            }catch
+            { return false; }
         }
     }
 }

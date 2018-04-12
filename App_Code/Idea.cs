@@ -11,3 +11,18 @@ public partial class Idea
 {
     public string DisplayName { get; set; }
 }
+
+public partial class sp_LisOfLikeResult
+{
+    public string DisplayName { get; set; }
+}
+
+public partial class sp_LisOfDislikeResult
+{
+    public string DisplayName { get; set; }
+}
+
+public partial class sp_countIdeaOnDepartmentResult
+{
+    public double Percent{ get; set; }
+}

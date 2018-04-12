@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */'
         .row.content {
             height: 1500px
         }
@@ -46,24 +46,35 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <asp:LinkButton class="navbar-brand" runat="server" ID="lbtnHome" OnClick="lbtnHome_Click" Text="EWSD_University" />
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <asp:LinkButton class="navbar-brand" runat="server" ID="lbtnHome" OnClick="lbtnHome_Click" Text="EWSD_University" />
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnIdeas" Text="Idea" OnClick="lbtnIdeas_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnUser" Text="User" OnClick="lbtnUser_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnDownload" Text="Download" OnClick="lbtnDownload_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnYear" Text="Academic Year" OnClick="lbtnYear_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnCategoryMenu" Text="Category" OnClick="lbtnCategoryMenu_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnChangePass" Text="Change Password" OnClick="lbtnChangePass_Click" CausesValidation="false"  /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnLogout" Text="Log Out" OnClick="lbtnLogout_Click" CausesValidation="false" /></li>
+                    <li>
+                        <asp:LinkButton runat="server" ID="lbtnReport" Text="Log Out" OnClick="lbtnReport_Click" CausesValidation="false" /></li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav">
-                <li><asp:LinkButton runat="server" ID="lbtnIdeas" Text="Idea" OnClick="lbtnIdeas_Click" /></li>
-                <li><asp:LinkButton runat="server" ID="lbtnUser" Text="User" OnClick="lbtnUser_Click" /></li>
-                <li><asp:LinkButton runat="server" ID="lbtnDownload" Text="Download" OnClick="lbtnDownload_Click" /></li>
-                <li><asp:LinkButton runat="server" ID="lbtnYear" Text="Academic Year" OnClick="lbtnYear_Click" /></li>
-                <li><asp:LinkButton runat="server" ID="lbtnCategoryMenu" Text="Category" OnClick="lbtnCategoryMenu_Click" /></li>
-                <li><asp:LinkButton runat="server" ID="lbtnLogout" Text="Log Out" OnClick="lbtnLogout_Click" /></li>
-            </ul>
-        </div>
-    </nav>
-    
+        </nav>
 
-    
+
+
         <div>
             <div class="container-fluid">
                 <div class="row content">
@@ -72,26 +83,26 @@
                         <ul class="nav nav-pills nav-stacked">
                             <asp:Repeater runat="server" ID="rptCategory">
                                 <ItemTemplate>
-                                    <li><asp:LinkButton CssClass="active" runat="server" ID="lbtnCategory"
-                                        CommandArgument=<%#Eval("CatID") %>
-                                        OnClick="lbtnCategory_Click">
+                                    <li>
+                                        <asp:LinkButton CssClass="active" runat="server" ID="lbtnCategory"
+                                            CommandArgument='<%#Eval("CatID") %>'
+                                            OnClick="lbtnCategory_Click">
                                         <%#Eval("Name") %>
                                         <small>( <%#Eval("count") %> )</small>
                                         </asp:LinkButton>
-                                        </li>
+                                    </li>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ul>
                         <br>
                     </div>
                     <div class="col-sm-9">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    
-                    </asp:ContentPlaceHolder>
-                </div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
                 </div>
             </div>
-            <footer class="container-fluid" style="text-align:center">
+            <footer class="container-fluid" style="text-align: center">
                 <p>EWSD_University</p>
             </footer>
         </div>

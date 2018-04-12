@@ -77,7 +77,7 @@ public partial class IdeaManagement : IdeaService
                     string emailQA;
                     using (EWSDDataContext db = new EWSDDataContext())
                     {
-                        var id = db.Users.Join(db.Departments, u => u.DepID, d => d.DepID, (u, d) => new { u, d, }).
+                        var id = db.Users.Join(db.Departments, u => u.DepID, d => d.DepID, (u, d) => new { u, d}).
                             FirstOrDefault(x => x.u.RoleID == 2 && x.d.DepID == user.DepID);
                         emailQA = id.u.Email;
                     }

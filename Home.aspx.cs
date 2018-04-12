@@ -11,13 +11,69 @@ public partial class Home : ReactionService
     {
         if (!IsPostBack)
         {
-            LoadToGrv();
+             LoadToGrv();
+           // ViewIndex = 1;
+          //  LoadGrvByFilter();
         }
     }
+
+    //public void LoadGrvByFilter()
+    //{
+    //    using (EWSDDataContext db = new EWSDDataContext())
+    //    {
+    //        if (ddlFilter.SelectedValue == "1")
+    //        {
+    //            ViewIndex = 0;
+    //            List<sp_LisOfLikeResult> sp = db.sp_LisOfLike().ToList();
+    //            foreach (sp_LisOfLikeResult spResult in sp)
+    //            {
+    //                if (spResult.Anonymous == true)
+    //                {
+    //                    User user = db.Users.FirstOrDefault(x => x.ID_Iden == spResult.ID_Iden);
+    //                    spResult.DisplayName = user.LastName + " " + user.FirstName;
+    //                }
+    //                else
+    //                {
+    //                    spResult.DisplayName = "Anonymous";
+    //                }
+    //            }
+    //            grvIdea.DataSource = sp;
+    //        }
+    //        if(ddlFilter.SelectedValue == "2")
+    //        {
+    //            ViewIndex = 1;
+    //            List<sp_LisOfDislikeResult> sp = db.sp_LisOfDislike().ToList();
+    //            foreach (sp_LisOfDislikeResult spResult in sp)
+    //            {
+    //                if (spResult.Anonymous == true)
+    //                {
+    //                    User user = db.Users.FirstOrDefault(x => x.ID_Iden == spResult.ID_Iden);
+    //                    spResult.DisplayName = user.LastName + " " + user.FirstName;
+    //                }
+    //                else
+    //                {
+    //                    spResult.DisplayName = "Anonymous";
+    //                }
+    //            }
+    //            GridView1.DataSource = sp;
+    //            GridView1.DataBind();
+    //        }
+    //    }
+    //    grvIdea.DataBind();
+    //}
+
+    //public int ViewIndex
+    //{
+    //    set
+    //    {
+    //        mtvGrv.ActiveViewIndex = value;
+    //    }
+    //}
 
     public void LoadToGrv()
     {
         var id = Request.QueryString["Category"];
+     //   int ddlId = int.Parse(ddlFilter.SelectedValue);
         IQueryable query;
         using (EWSDDataContext db = new EWSDDataContext())
         {
@@ -34,13 +90,12 @@ public partial class Home : ReactionService
                     idea.DisplayName = "Anonymous";
                 }
             }
-
-            if (id == null)
-                query = db.Ideas;
-            else
-            {
+            if (id != null)
                 query = db.Ideas.Where(x => x.CatID == int.Parse(id));
-            }
+            else
+                query = db.Ideas;
+            //if (ddlId == 1)
+            //    query = db.Ideas.Join(db.Reactions, i => i.IdeaID, r => r.IdeaID, (i, r) => new { i, r }).Where(x => x.r.Status == 1).GroupBy(x => x.r.IdeaID);
             grvIdea.DataSource = query;
             grvIdea.DataBind();
         }
@@ -72,4 +127,10 @@ public partial class Home : ReactionService
         grvIdea.PageIndex = e.NewPageIndex;
         LoadToGrv();
     }
+
+    //protected void ddlFilter_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    int id = int.Parse(ddlFilter.SelectedValue);
+
+    //}
 }

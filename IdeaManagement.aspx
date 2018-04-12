@@ -9,6 +9,9 @@
         <tr>
             <td>Title</td>
             <td><asp:TextBox class="form-control" runat="server" ID="txtTitle" /></td>
+            <td>
+                <asp:RequiredFieldValidator CssClass="alert alert-danger" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTitle" ErrorMessage="Title cannot be blank" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td>Categories</td>
@@ -17,7 +20,10 @@
         <tr>
             <td>Content</td>
             <td><asp:TextBox class="form-control" rows="5" TextMode="MultiLine" runat="server" ID="txtContent" /></td>
-        </tr>
+        <td>
+                <asp:RequiredFieldValidator CssClass="alert alert-danger" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtContent" ErrorMessage="Content cannot be blank" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+        </td>
+            </tr>
         <tr>
             <td>Anonymous</td>
             <td><asp:CheckBox class="checkbox-inline" runat="server" ID="chkAnony" Text="Do you want to be anonymous" /></td>

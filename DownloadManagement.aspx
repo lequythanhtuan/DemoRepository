@@ -6,7 +6,7 @@
      <asp:GridView CssClass="table table-bordered" class="pagination"  runat="server"
         AllowPaging="true" PageSize="5" DataKeyNames="IdeaID" OnPageIndexChanging="grvIdea_PageIndexChanging" ID="grvIdea" AutoGenerateColumns="false">
         <Columns>
-            <asp:TemplateField HeaderText="Title">
+            <asp:TemplateField HeaderText="No">
                 <ItemTemplate>
                     <asp:CheckBox runat="server" ID="chkDown" OnCheckedChanged="chkDown_CheckedChanged" />
                 </ItemTemplate>

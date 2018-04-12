@@ -25,7 +25,10 @@ public partial class LoginForm : System.Web.UI.Page
                 return;
             }
             Session["user"] = _user;
-            Response.Redirect("FindUser.aspx");
+            if (_user.RoleID == 1)
+                Response.Redirect("FindUser.aspx");
+            else
+                Response.Redirect("Home.aspx");
         }
     }
 }

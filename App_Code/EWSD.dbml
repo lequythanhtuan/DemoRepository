@@ -141,4 +141,34 @@
       <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_LisOfDislike" Method="sp_LisOfDislike">
+    <ElementType Name="sp_LisOfDislikeResult">
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Anonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LisOfLike" Method="sp_LisOfLike">
+    <ElementType Name="sp_LisOfLikeResult">
+      <Column Name="IdeaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Iden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Anonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_countIdeaOnDepartment" Method="sp_countIdeaOnDepartment">
+    <ElementType Name="sp_countIdeaOnDepartmentResult">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityOfIdeas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
